@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
  * @returns {JSX.Element} The rendered EyeIconClosed component.
  * @see EyeIconClosedProps
  */
-export const EyeIconClosed = ({ size = 24, color }) => {
+export const EyeIconClosed = ({ size = 24, color, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,6 +26,7 @@ export const EyeIconClosed = ({ size = 24, color }) => {
       strokeLinejoin="round"
       className="feather feather-eye-off"
       color={color}
+      {...props}
     >
       <path d="M1 1l22 22"></path>
       <circle cx="12" cy="12" r="3"></circle>

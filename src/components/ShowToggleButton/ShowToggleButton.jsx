@@ -40,9 +40,9 @@ export const ShowToggleButton = ({
     {...props}
   >
     {shown ? (
-      <EyeIcon size={size} color={color} />
+      <EyeIcon size={size} color={color} data-testid="eye-icon" />
     ) : (
-      <EyeIconClosed size={size} color={color} />
+      <EyeIconClosed size={size} color={color} data-testid="eye-closed-icon" />
     )}
   </button>
 );
