@@ -88,7 +88,6 @@ export const InputValueView = forwardRef(
           className={`hide-scrollbar ${chars?.length ? "" : "empty-div"}`}
           style={{
             position: "relative",
-            // outline: "solid 1px #8affaa",
             outline: "none",
             whiteSpace: "nowrap",
             overflowX: "scroll",
