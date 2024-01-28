@@ -248,4 +248,34 @@ describe("<InputValueView/>", () => {
     const caret = await screen.queryByTestId("input-caret");
     expect(caret).toHaveStyle(`left: 0px`);
   });
+
+  it("Should call onChange on keypress", async () => {
+    // Setup
+    const onChange = vi.fn();
+    render(<InputValueView data-testid="input" onChange={onChange} />);
+    const input = await screen.queryByTestId("input");
+    await input.focus();
+
+    // fire keydown event with character
+    const event = new KeyboardEvent("keydown", { key: "d" });
+    await input.dispatchEvent(event);
+
+    // Expectations
+    expect(onChange).toHaveBeenCalled();
+  });
+
+  it("Should call onChange on keypress with new value", async () => {
+    // Setup
+    const onChange = vi.fn();
+    render(<InputValueView data-testid="input" onChange={onChange} />);
+    const input = await screen.queryByTestId("input");
+    await input.focus();
+
+    // fire keydown event with character
+    const event = new KeyboardEvent("keydown", { key: "d" });
+    await input.dispatchEvent(event);
+
+    // Expectations
+    waitFor(() => expect(onChange).toHaveBeenCalledWith("d"));
+  });
 });

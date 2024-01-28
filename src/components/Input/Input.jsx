@@ -1,4 +1,4 @@
-import { forwardRef, useRef, useState } from "react";
+import { forwardRef, useRef, useState, useMemo } from "react";
 import { useColor } from "@hooks";
 import { InputValueView } from "@components";
 import PropTypes from "prop-types";
@@ -37,6 +37,7 @@ export const Input = forwardRef(
       password = false,
       label = "",
       style = {},
+      ...props
     },
     ref
   ) => {
@@ -50,6 +51,7 @@ export const Input = forwardRef(
     const color = useColor(difRef, false) || "cyan";
     const [focused, setFocused] = useState(false);
 
+    const id = useMemo(() => Math.random().toString(36).slice(2), []);
     return (
       <div
         // to access ref regardless if the ref is forwarded or not
@@ -76,6 +78,8 @@ export const Input = forwardRef(
           outlineColor: focused ? color : "#3e3e3e",
           ...style,
         }}
+        id={id}
+        {...props}
       >
         {label && (
           <label
