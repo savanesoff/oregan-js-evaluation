@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState, useEffect } from "react";
-import { useDebounce } from "../useDebounce/useDebounce";
+import { useDebounce } from "@hooks";
 
 const CHAR_HIDE_DELAY = 600;
 
