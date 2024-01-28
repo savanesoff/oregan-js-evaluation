@@ -3,40 +3,6 @@ import { render, screen, waitFor } from "@testing-library/react";
 
 import { InputValueView } from "./InputValueView";
 
-const mocks = vi.hoisted(() => {
-  return {
-    color: "rgb(0, 128, 0)",
-    useColor: vi.fn().mockImplementation(() => mocks.color),
-    inputValues: {
-      inputValue: "a",
-      chars: [{ value: "a", added: true, password: false }],
-      caretOffset: 0,
-      onKeyDownCapture: vi.fn(),
-      onKeyUpCapture: vi.fn(),
-      editMode: false,
-      toggleShowPass: vi.fn(),
-      showPass: false,
-      setClickPosition: vi.fn(),
-    },
-    useInputValue: vi
-      .fn()
-      .mockImplementation((ref, value, password, readonly) => {
-        return {
-          ...mocks.inputValues,
-          inputValue: value,
-          chars: [{ value, added: true, password }],
-        };
-      }),
-  };
-});
-
-vi.mock("@hooks", async () => {
-  return {
-    ...(await vi.importActual("@hooks")),
-    useColor: mocks.useColor,
-    // useInputValue: mocks.useInputValue,
-  };
-});
 // Tests
 describe("<InputValueView/>", () => {
   it("Should render component", async () => {
