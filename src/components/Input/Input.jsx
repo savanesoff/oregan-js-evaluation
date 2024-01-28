@@ -1,6 +1,6 @@
 import { forwardRef, useRef, useState } from "react";
-import { useColor } from "../hooks/useBackgroundColor";
-import { InputValueView } from "./InputValueView";
+import { useColor } from "@hooks";
+import { InputValueView } from "@components";
 import PropTypes from "prop-types";
 
 /**

@@ -1,4 +1,4 @@
-import { Input } from "./components/Input";
+import { Input } from "@components";
 import reactLogo from "./assets/react.svg";
 import { useEffect, useRef } from "react";
 import "./App.css";

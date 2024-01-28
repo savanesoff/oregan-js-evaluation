@@ -1,9 +1,6 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
-import { useInputValue } from "../hooks/useInputValue";
-import { InputCharView } from "./InputCharView";
-import { InputCaret } from "./InputCaret";
-import { ShowToggleButton } from "./ShowToggleButton";
-import { useColor } from "../hooks/useBackgroundColor";
+import { useInputValue, useColor } from "@hooks";
+import { InputCaret, ShowToggleButton, InputCharView } from "@components";
 import PropTypes from "prop-types";
 
 /**

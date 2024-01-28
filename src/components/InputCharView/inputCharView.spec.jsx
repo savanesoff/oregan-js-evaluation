@@ -67,4 +67,13 @@ describe("<InputCharView/>", () => {
       { timeout: delay + 100 }
     );
   });
+
+  it('Should have tesstid="a"', async () => {
+    // Setup
+    render(<InputCharView value="a" data-testid="char" />);
+    // Expectations
+    const span = await screen.queryByTestId("char");
+    // Expectations
+    expect(span).toBeInTheDocument();
+  });
 });

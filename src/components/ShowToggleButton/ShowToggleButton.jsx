@@ -1,5 +1,4 @@
-import { EyeIcon } from "../assets/EyeIcon";
-import { EyeIconClosed } from "../assets/EyeIconClosed";
+import { EyeIconClosed, EyeIcon } from "@assets";
 import PropTypes from "prop-types";
 
 /**

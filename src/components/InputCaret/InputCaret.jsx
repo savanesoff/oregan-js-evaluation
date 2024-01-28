@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { useColor } from "@hooks";
 
 /**
  * @typedef {Object} InputCaretProps
@@ -17,16 +18,18 @@ import PropTypes from "prop-types";
  */
 export const InputCaret = forwardRef(
   (
-    { offsetLeft, intervalMS = 500, blink = true, width = 3, opacity = 0.8 },
+    {
+      offsetLeft,
+      intervalMS = 500,
+      blink = true,
+      width = 3,
+      opacity = 0.8,
+      ...props
+    },
     ref
   ) => {
     const [opacityValue, setOpacityValue] = useState(opacity);
-    const [color, setColor] = useState("red");
-
-    useEffect(() => {
-      const color = window.getComputedStyle(ref?.current)?.color;
-      if (color) setColor(color);
-    }, [ref]);
+    const color = useColor(ref, false) || "white";
 
     useEffect(() => {
       if (!blink) {
@@ -52,6 +55,7 @@ export const InputCaret = forwardRef(
           opacity: opacityValue,
           transition: "opacity 0.25s ease-in-out",
         }}
+        {...props}
       />
     );
   }

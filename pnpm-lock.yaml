@@ -46,6 +46,9 @@ devDependencies:
   jsdom:
     specifier: ^24.0.0
     version: 24.0.0
+  link-module-alias:
+    specifier: ^1.2.0
+    version: 1.2.0
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
@@ -2176,6 +2179,14 @@ packages:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
+    dev: true
+
+  /link-module-alias@1.2.0:
+    resolution: {integrity: sha512-ahPjXepbSVKbahTB6LxR//VHm8HPfI+QQygCH+E82spBY4HR5VPJTvlhKBc9F7muVxnS6C1rRfoPOXAbWO/fyw==}
+    engines: {node: '> 8.0.0'}
+    hasBin: true
+    dependencies:
+      chalk: 2.4.2
     dev: true
 
   /local-pkg@0.5.0:

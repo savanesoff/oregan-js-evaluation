@@ -1,3 +1,17 @@
+import PropTypes from "prop-types";
+
+/**
+ * @typedef {Object} EyeIconProps
+ * @property {number} [size=24] - The size of the icon.
+ * @property {string} [color] - The color of the icon.
+ */
+
+/**
+ * The eye icon.
+ * @param {EyeIconProps} props - The props object.
+ * @returns {JSX.Element} The rendered EyeIcon component.
+ * @see EyeIconProps
+ */
 export const EyeIcon = ({ size = 24, color }) => {
   return (
     <svg
@@ -17,4 +31,9 @@ export const EyeIcon = ({ size = 24, color }) => {
       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
     </svg>
   );
+};
+
+EyeIcon.propTypes = {
+  size: PropTypes.number,
+  color: PropTypes.string,
 };
