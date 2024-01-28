@@ -128,6 +128,7 @@ export const InputValueView = forwardRef(
           )}
           {focused && !readonly && (
             <InputCaret
+              data-testid="input-caret"
               ref={caretRef}
               blink={!editMode}
               intervalMS={500}
@@ -141,6 +142,7 @@ export const InputValueView = forwardRef(
             shown={showPass}
             size={15}
             color={color}
+            data-testid="show-toggle-button"
           />
         )}
       </>

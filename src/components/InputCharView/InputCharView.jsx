@@ -41,6 +41,7 @@ export const InputCharView = ({
   return (
     <span
       data-value={value}
+      data-type="char"
       style={{
         display: "inline-block",
         position: "relative",

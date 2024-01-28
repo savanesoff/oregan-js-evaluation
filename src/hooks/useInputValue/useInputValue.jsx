@@ -40,7 +40,7 @@ export const useInputValue = (
     (selectedCharIndex) => {
       const selectedChar = chars[selectedCharIndex];
 
-      if (!selectedChar || !ref.current) return 0;
+      if (!selectedChar || !ref?.current) return 0;
 
       const element = ref.current?.childNodes[selectedCharIndex];
 

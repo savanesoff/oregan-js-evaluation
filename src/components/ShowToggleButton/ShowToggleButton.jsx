@@ -21,6 +21,7 @@ export const ShowToggleButton = ({
   shown,
   color = "white",
   size = 15,
+  ...props
 }) => (
   <button
     onClick={onToggle}
@@ -36,6 +37,7 @@ export const ShowToggleButton = ({
       justifyContent: "center",
       outlineColor: color,
     }}
+    {...props}
   >
     {shown ? (
       <EyeIcon size={size} color={color} />
