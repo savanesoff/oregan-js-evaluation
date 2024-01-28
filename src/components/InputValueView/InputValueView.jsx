@@ -11,7 +11,6 @@ import PropTypes from "prop-types";
  * @property {string} [placeholder=""] - The placeholder text.
  * @property {boolean} [password=false] - Whether the input is a password.
  * @property {boolean} [readonly=false] - Whether the input is readonly.
- * @property {number} [tabIndex=0] - The tabIndex of the input.
  * @property {Object} [style={}] - The style object to apply to the input.
  */
 
@@ -34,7 +33,6 @@ export const InputValueView = forwardRef(
       placeholder = "",
       password,
       readonly = false,
-      tabIndex = 0,
       ...props
     },
     ref
@@ -103,7 +101,7 @@ export const InputValueView = forwardRef(
           onKeyDownCapture={onKeyDownCapture}
           onKeyUpCapture={onKeyUpCapture}
           onClick={setClickPosition}
-          tabIndex={readonly ? -1 : tabIndex}
+          tabIndex={readonly ? -1 : 0}
           {...props}
         >
           {chars.length > 0 ? (
@@ -157,5 +155,4 @@ InputValueView.propTypes = {
   placeholder: PropTypes.string,
   password: PropTypes.bool,
   readonly: PropTypes.bool,
-  tabIndex: PropTypes.number,
 };

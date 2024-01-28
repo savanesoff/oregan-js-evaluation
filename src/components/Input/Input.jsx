@@ -111,7 +111,6 @@ export const Input = forwardRef(
           ref={inputRef}
           onChange={onChange}
           autoFocus={autofocus}
-          tabIndex={0}
           password={password}
           placeholder={placeholder}
           readonly={readonly}
