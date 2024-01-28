@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 /**
  * @typedef {Object} Char
@@ -6,6 +7,8 @@ import { useEffect, useState } from "react";
  * @property {string} value - The value of the character.
  * @property {boolean} [password=false] - Whether the input is a password.
  * @property {boolean} [showPass=false] - Whether to show the password.
+ * @property {boolean} [added=false] - Whether the character was added.
+ * @property {number} [hideDelay=600] - The delay to hide the character.
  */
 
 /**
@@ -50,4 +53,12 @@ export const InputCharView = ({
       {!show && !showPass ? "*" : value === " " ? <>&nbsp;</> : value}
     </span>
   );
+};
+
+InputCharView.propTypes = {
+  value: PropTypes.string.isRequired,
+  password: PropTypes.bool,
+  added: PropTypes.bool,
+  hideDelay: PropTypes.number,
+  showPass: PropTypes.bool,
 };

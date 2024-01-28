@@ -1,6 +1,22 @@
 import { EyeIcon } from "../assets/EyeIcon";
 import { EyeIconClosed } from "../assets/EyeIconClosed";
+import PropTypes from "prop-types";
 
+/**
+ * @typedef {Object} ShowToggleButtonProps
+ * @property {function} onToggle - The callback to call when the toggle button is clicked.
+ * @property {boolean} shown - Whether the toggle button is shown.
+ * @property {string} [color="white"] - The color of the toggle button.
+ * @property {number} [size=15] - The size of the toggle button.
+ */
+
+/**
+ * @param {ShowToggleButtonProps} props - The props object.
+ * @returns {JSX.Element} The rendered ShowToggleButton component.
+ * @see ShowToggleButtonProps
+ * @see EyeIcon
+ * @see EyeIconClosed
+ */
 export const ShowToggleButton = ({
   onToggle,
   shown,
@@ -29,3 +45,10 @@ export const ShowToggleButton = ({
     )}
   </button>
 );
+
+ShowToggleButton.propTypes = {
+  onToggle: PropTypes.func.isRequired,
+  shown: PropTypes.bool.isRequired,
+  color: PropTypes.string,
+  size: PropTypes.number,
+};

@@ -1,7 +1,29 @@
 import { forwardRef, useRef, useState } from "react";
 import { useColor } from "../hooks/useBackgroundColor";
 import { InputValueView } from "./InputValueView";
+import PropTypes from "prop-types";
 
+/**
+ * @typedef {Object} InputProps
+ * @property {string} [value=""] - The value of the input.
+ * @property {string} [placeholder=""] - The placeholder text.
+ * @property {JSX.Element} [startAdornment] - The start adornment.
+ * @property {JSX.Element} [endAdornment] - The end adornment.
+ * @property {boolean} [autofocus=true] - Whether to focus the input on mount.
+ * @property {boolean} [readonly=false] - Whether the input is readonly.
+ * @property {function} [onChange] - The callback to call when the value changes.
+ * @property {boolean} [password=false] - Whether the input is a password.
+ * @property {string} [label=""] - The label text.
+ * @property {Object} [style={}] - The style object to apply to the input.
+ */
+
+/**
+ * @param {InputProps} props - The props object.
+ * @returns {JSX.Element} The rendered Input component.
+ * @see InputProps
+ * @see InputValueView
+ * @see useColor
+ */
 export const Input = forwardRef(
   (
     {
@@ -95,3 +117,16 @@ export const Input = forwardRef(
     );
   }
 );
+
+Input.propTypes = {
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  startAdornment: PropTypes.element,
+  endAdornment: PropTypes.element,
+  autofocus: PropTypes.bool,
+  readonly: PropTypes.bool,
+  onChange: PropTypes.func,
+  password: PropTypes.bool,
+  label: PropTypes.string,
+  style: PropTypes.object,
+};

@@ -4,7 +4,30 @@ import { InputCharView } from "./InputCharView";
 import { InputCaret } from "./InputCaret";
 import { ShowToggleButton } from "./ShowToggleButton";
 import { useColor } from "../hooks/useBackgroundColor";
+import PropTypes from "prop-types";
 
+/**
+ * @typedef {Object} InputValueViewProps
+ * @property {string} value - The value of the input.
+ * @property {boolean} [autoFocus=true] - Whether to focus the input on mount.
+ * @property {function} [onChange] - The callback to call when the value changes.
+ * @property {string} [placeholder=""] - The placeholder text.
+ * @property {boolean} [password=false] - Whether the input is a password.
+ * @property {boolean} [readonly=false] - Whether the input is readonly.
+ * @property {number} [tabIndex=0] - The tabIndex of the input.
+ * @property {Object} [style={}] - The style object to apply to the input.
+ */
+
+/**
+ * @param {InputValueViewProps} props - The props object.
+ * @returns {JSX.Element} The rendered InputValueView component.
+ * @see InputValueViewProps
+ * @see InputCharView
+ * @see InputCaret
+ * @see ShowToggleButton
+ * @see useInputValue
+ * @see useColor
+ */
 export const InputValueView = forwardRef(
   (
     {
@@ -94,6 +117,7 @@ export const InputValueView = forwardRef(
                 data-testid={char.key}
                 password={password}
                 showPass={showPass}
+                key={char.key}
               />
             ))
           ) : (
@@ -127,3 +151,13 @@ export const InputValueView = forwardRef(
     );
   }
 );
+
+InputValueView.propTypes = {
+  value: PropTypes.string.isRequired,
+  autoFocus: PropTypes.bool,
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  password: PropTypes.bool,
+  readonly: PropTypes.bool,
+  tabIndex: PropTypes.number,
+};
