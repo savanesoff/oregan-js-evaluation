@@ -2,10 +2,14 @@
 
 This is an example of Input field HTML tag implementation without using Native Input tag.
 
+## See Demo
+
+[Input Element](https://savanesoff.github.io/oregan-js-evaluation/)
+
 Using following screen as an example
 [![Validator](https://raw.githubusercontent.com/savanesoff/oregan-js-evaluation/main/public/oregan_screen.png)](https://savanesoff.github.io/oregan-js-evaluation)
 
-## Design Considerations
+### RE: Design Considerations
 
 Some example design considerations based on the UX design for the Login page are as follows:
 

@@ -7,7 +7,7 @@ import { useState } from "react";
 function App() {
   return (
     <>
-      <h2>Oregan React - JS Evaluation</h2>
+      <h2>Oregan React JS Evaluation</h2>
       <p>Input Component by Samvel Avanesov</p>
       <div
         style={{
