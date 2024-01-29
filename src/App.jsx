@@ -2,6 +2,7 @@ import { Input } from "@components";
 import reactLogo from "./assets/react.svg";
 import { useEffect, useRef } from "react";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   return (
@@ -11,61 +12,171 @@ function App() {
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
+          gap: 30,
           width: "100%",
           height: "100%",
-          padding: 20,
-          gap: 30,
-
-          fontSize: "1rem",
         }}
       >
-        <InputBasicRef
-          style={{
-            padding: 5,
-            borderRadius: "6px",
-            color: "white",
-          }}
-        />
-        <InputPassword
-          style={{
-            padding: 5,
-
-            borderRadius: "6px",
-            color: "#b5ff8a",
-          }}
-        />
-
-        <InputEndAdornment
-          style={{
-            padding: 5,
-
-            borderRadius: "6px",
-            color: "#ffaaea",
-          }}
-        />
-        <InputStartAdornment
-          style={{
-            padding: 5,
-            borderRadius: "6px",
-            color: "#6bc9ff",
-          }}
-        />
-        <InputReadonly
-          style={{
-            padding: 5,
-            borderRadius: "6px",
-            color: "#ffd769",
-          }}
-        />
+        <InputExamples />
+        <LoginExample />
       </div>
     </>
   );
 }
 
 export default App;
+
+const LoginExample = () => {
+  const [disabled, setDisabled] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  useEffect(() => {
+    console.log("email", email);
+    console.log("password", password);
+    if (email.length && password.length) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [email, password]);
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "end",
+        gap: 30,
+        width: "100%",
+        height: "100%",
+        padding: 20,
+        fontSize: "1rem",
+      }}
+    >
+      <Input
+        onChange={setEmail}
+        placeholder="Enter your Email"
+        label="Email"
+        style={{
+          borderRadius: "6px",
+          color: "white",
+        }}
+      />
+      <Input
+        onChange={setPassword}
+        password={true}
+        showPassword={showPassword}
+        placeholder="Enter your Password"
+        label="Password"
+        style={{
+          borderRadius: "6px",
+          color: "white",
+        }}
+      />
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 10,
+          fontSize: "1rem",
+          width: "100%",
+          justifyContent: "flex-end",
+        }}
+      >
+        <button
+          tabIndex={0}
+          onClick={togglePassword}
+          style={{
+            padding: "3px 10px",
+            borderRadius: "6px",
+            border: "1px solid #909090",
+            color: "white",
+            backgroundColor: "#3e3e3e",
+            cursor: "pointer",
+            opacity: 0.8,
+          }}
+        >
+          {showPassword ? "Hide" : "Show"} Password
+        </button>
+
+        <button
+          disabled={disabled}
+          tabIndex={0}
+          style={{
+            padding: "3px 10px",
+            borderRadius: "6px",
+            border: "1px solid #909090",
+            color: "white",
+            backgroundColor: "#3e3e3e",
+            cursor: "pointer",
+            opacity: disabled ? 0.5 : 1,
+          }}
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const InputExamples = () => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      height: "100%",
+      padding: 20,
+      gap: 30,
+      fontSize: "1rem",
+    }}
+  >
+    <InputBasicRef
+      style={{
+        padding: 5,
+        borderRadius: "6px",
+        color: "white",
+      }}
+    />
+    <InputPassword
+      style={{
+        borderRadius: "6px",
+        color: "#b5ff8a",
+      }}
+    />
+
+    <InputEndAdornment
+      style={{
+        borderRadius: "6px",
+        color: "#ffaaea",
+      }}
+    />
+    <InputStartAdornment
+      style={{
+        borderRadius: "6px",
+        color: "#6bc9ff",
+      }}
+    />
+    <InputReadonly
+      style={{
+        borderRadius: "6px",
+        color: "#ffd769",
+      }}
+    />
+  </div>
+);
 
 const InputBasicRef = (props) => {
   const ref = useRef(null);
@@ -118,7 +229,7 @@ const InputEndAdornment = (props) => {
         <span
           style={{
             color: "#c0c0c0",
-            fontSize: 20,
+            fontSize: 15,
             display: "flex",
             alignItems: "center",
           }}
