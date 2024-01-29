@@ -21,6 +21,7 @@ export const ShowToggleButton = ({
   shown,
   color = "white",
   size = 15,
+  style = {},
   ...props
 }) => (
   <button
@@ -36,6 +37,7 @@ export const ShowToggleButton = ({
       alignItems: "center",
       justifyContent: "center",
       outlineColor: color,
+      ...style,
     }}
     {...props}
   >
@@ -52,4 +54,5 @@ ShowToggleButton.propTypes = {
   shown: PropTypes.bool.isRequired,
   color: PropTypes.string,
   size: PropTypes.number,
+  style: PropTypes.object,
 };

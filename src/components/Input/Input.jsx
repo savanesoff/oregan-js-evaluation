@@ -15,6 +15,7 @@ import PropTypes from "prop-types";
  * @property {boolean} [password=false] - Whether the input is a password.
  * @property {string} [label=""] - The label text.
  * @property {Object} [style={}] - The style object to apply to the input.
+ * @property {boolean} [showPassword=false] - Whether to show the password.
  */
 
 /**
@@ -37,6 +38,7 @@ export const Input = forwardRef(
       password = false,
       label = "",
       style = {},
+      showPassword = false,
       ...props
     },
     ref
@@ -68,14 +70,14 @@ export const Input = forwardRef(
           setFocused(false);
         }}
         style={{
-          width: "100%",
+          width: "0",
+          minWidth: "100%",
           display: "flex",
           flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
           position: "relative",
           outline: "solid 1px #3e3e3e",
           outlineColor: focused ? color : "#3e3e3e",
+          padding: "5px 10px",
           ...style,
         }}
         id={id}
@@ -114,6 +116,7 @@ export const Input = forwardRef(
           password={password}
           placeholder={placeholder}
           readonly={readonly}
+          showPassword={showPassword}
         />
         {endAdornment && <div>{endAdornment}</div>}
       </div>
@@ -132,4 +135,5 @@ Input.propTypes = {
   password: PropTypes.bool,
   label: PropTypes.string,
   style: PropTypes.object,
+  showPassword: PropTypes.bool,
 };

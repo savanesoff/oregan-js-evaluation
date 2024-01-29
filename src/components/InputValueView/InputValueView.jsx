@@ -4,6 +4,7 @@ import { InputCaret, ShowToggleButton, InputCharView } from "@components";
 import PropTypes from "prop-types";
 
 /**
+ * Input text display component.
  * @typedef {Object} InputValueViewProps
  * @property {string} value - The value of the input.
  * @property {boolean} [autoFocus=true] - Whether to focus the input on mount.
@@ -12,6 +13,7 @@ import PropTypes from "prop-types";
  * @property {boolean} [password=false] - Whether the input is a password.
  * @property {boolean} [readonly=false] - Whether the input is readonly.
  * @property {Object} [style={}] - The style object to apply to the input.
+ * @property {boolean} [showPassword=false] - Whether to show the password.
  */
 
 /**
@@ -33,6 +35,7 @@ export const InputValueView = forwardRef(
       placeholder = "",
       password,
       readonly = false,
+      showPassword = false,
       ...props
     },
     ref
@@ -40,6 +43,7 @@ export const InputValueView = forwardRef(
     // track the caret element
     const caretRef = useRef(null);
     const [focused, setFocused] = useState(false);
+    // color is used to set the caret color
     const color = useColor(ref, false) || "cyan";
 
     const {
@@ -56,8 +60,8 @@ export const InputValueView = forwardRef(
 
     useEffect(() => {
       // ensure to call onChange only when the value has changed
-      if (onChange && value !== inputValue) onChange(inputValue);
-    }, [inputValue, onChange, value]);
+      if (onChange) onChange(inputValue);
+    }, [inputValue, onChange]);
 
     useEffect(() => {
       if (readonly) return;
@@ -91,6 +95,8 @@ export const InputValueView = forwardRef(
             overflowX: "scroll",
             width: "100%",
             textAlign: "left",
+            display: "flex",
+            justifyContent: "flex-start",
           }}
           onFocus={() => {
             setFocused(true);
@@ -110,7 +116,7 @@ export const InputValueView = forwardRef(
                 {...char}
                 data-testid={char.key}
                 password={password}
-                showPass={showPass}
+                showPass={showPass || showPassword}
                 key={char.key}
               />
             ))
@@ -137,10 +143,13 @@ export const InputValueView = forwardRef(
         {password && (
           <ShowToggleButton
             onToggle={toggleShowPass}
-            shown={showPass}
+            shown={showPass || showPassword}
             size={15}
             color={color}
             data-testid="show-toggle-button"
+            style={{
+              marginLeft: 5,
+            }}
           />
         )}
       </>
@@ -155,4 +164,6 @@ InputValueView.propTypes = {
   placeholder: PropTypes.string,
   password: PropTypes.bool,
   readonly: PropTypes.bool,
+  showPassword: PropTypes.bool,
+  style: PropTypes.object,
 };

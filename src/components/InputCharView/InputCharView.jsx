@@ -44,10 +44,8 @@ export const InputCharView = ({
       data-type="char"
       style={{
         display: "inline-block",
-        position: "relative",
         backgroundColor: animate ? "white" : "transparent",
         transition: "background-color 0.3s ease-in-out",
-        // outline: "solid 1px #f9ff8a",
       }}
       {...props}
     >
