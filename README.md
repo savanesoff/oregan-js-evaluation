@@ -31,6 +31,8 @@ I've implemented both as a separate and built in component
 
 > Make a suggestion on whether the cursor shall flash
 
+While text is being navigated or edited the cursor should stop flashing displaying solid caret (implemented)
+
 My suggestions:
 
 - Enable start/end adornments as per [MUI](https://mui.com/material-ui/react-text-field/) and other standards.
