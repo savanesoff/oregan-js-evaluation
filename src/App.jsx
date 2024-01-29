@@ -9,12 +9,19 @@ function App() {
     <>
       <h2>Oregan React JS Evaluation</h2>
       <p>Input Component by Samvel Avanesov</p>
+      <p
+        style={{
+          fontSize: "0.8rem",
+        }}
+      >
+        Try navigating using keyboard only
+      </p>
       <div
         style={{
           display: "flex",
           flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
+          // alignItems: "center",
+          // justifyContent: "center",
           gap: 30,
           width: "100%",
           height: "100%",
@@ -40,8 +47,6 @@ const LoginExample = () => {
   };
 
   useEffect(() => {
-    console.log("email", email);
-    console.log("password", password);
     if (email.length && password.length) {
       setDisabled(false);
     } else {
@@ -117,6 +122,9 @@ const LoginExample = () => {
         <button
           disabled={disabled}
           tabIndex={0}
+          onClick={() => {
+            console.log("Login", "email:", email, "password:", password);
+          }}
           style={{
             padding: "3px 10px",
             borderRadius: "6px",
