@@ -15,11 +15,15 @@ Cursor is shown for focused Input only
 
 > ability to show/hide the characters,i.e. for entering a password - where the hide replaces the chars with a '\*'.
 
+Done
+
 > When 'hide' is enabled show the real character for a set period before changing to be a `*`, the char to ‘hide’ the password characters can be hard coded to `*`.
 
 While entering a character it's shown for set period of time (default 500ms) then hidden by `*`
 
 > The show/hide control is a separate component, whose value will be passed into the UI Input component to control.
+
+I've implemented both as a separate and built in component
 
 > Make a suggestion on whether the cursor shall flash
 
@@ -31,6 +35,8 @@ My suggestions:
 - Enable Input type `readonly` (implemented)
 
 > Q1 Can you provide additional design considerations for the UI Input component based on the Login Page Design provided?
+
+> Q2 Q2 Can you implement a React UI Input Component, written in Javascript, which covers the design considerations provided to you, plus the additional design considerations from Q1.
 
 - I would consider not to separate `Show/Hide` button from the Input component implementation (implemented)
 - It might be great to have Input `Label` indicating field label (implemented)

@@ -53,14 +53,19 @@ const LoginExample = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "end",
+        alignItems: "center",
+        // justifyContent: "flex-start",
         gap: 30,
         width: "100%",
         height: "100%",
         padding: 20,
         fontSize: "1rem",
+        backgroundColor: "#272727",
+        border: "1px solid #484848",
+        borderRadius: "6px",
       }}
     >
+      <p>Use Login</p>
       <Input
         onChange={setEmail}
         placeholder="Enter your Email"
@@ -122,7 +127,7 @@ const LoginExample = () => {
             opacity: disabled ? 0.5 : 1,
           }}
         >
-          Login
+          Sign in
         </button>
       </div>
     </div>
@@ -141,11 +146,14 @@ const InputExamples = () => (
       padding: 20,
       gap: 30,
       fontSize: "1rem",
+      backgroundColor: "#272727",
+      border: "1px solid #484848",
+      borderRadius: "6px",
     }}
   >
+    <p>Input Examples</p>
     <InputBasicRef
       style={{
-        padding: 5,
         borderRadius: "6px",
         color: "white",
       }}
